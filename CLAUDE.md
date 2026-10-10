@@ -2,6 +2,14 @@
 
 Develop on this PC. The server only runs what gets pushed to it. No editing or debugging on the server.
 
+## What "homelab" means
+"homelab" is my home server: an Ubuntu VM running on a Proxmox host (`pve`) in my house, on the same LAN as this PC. It is deploy-only, so code is written and tested here and then pushed there.
+When I say "ssh over to homelab and do X", run `ssh suhasisnice@192.168.68.108` from this PC and do X on that machine (look around, check a service, deploy, install, read logs).
+- Look first, change second: reading is always fine. Before installing, deleting, restarting or editing anything on it, say what you'll do and wait for a yes, unless I already asked for that exact change.
+- `sudo` needs a password you don't have. For sudo steps, give me the exact command to run with `!`.
+- "The Proxmox host", "pve" or "the host" means `ssh root@192.168.68.200` (key auth), used only for VM or host-level problems like the network. Don't touch it for normal deploys.
+- Never put secrets from the server (keys, .env values) into files or commits.
+
 ## Server
 - Host `homelab`, user `suhasisnice`, passwordless SSH from this PC: `ssh suhasisnice@192.168.68.108`
 - IP is reserved at .108 in the Deco app (Address Reservation). It used to float (was .110). If SSH times out, the server is off or missed the network, not an IP change.
